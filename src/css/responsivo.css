@@ -1,0 +1,74 @@
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  main::after {
+    content: ""; /* necessário para pseudoelemento funcionar */
+    position: absolute;
+    background: linear-gradient(0deg, #f5b700 45%, rgba(182, 201, 16, 0) 70%) no-repeat;
+    width: 100vw;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .conteudo {
+    position: static;
+    top: auto;
+    left: auto;
+    padding: 16px;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-end;
+    max-width: 100vw;
+  }
+
+  .conteudo .nome-personagem {
+    font-size: 30px;
+  }
+
+  .conteudo .descricao {
+    max-width: 500px;
+  }
+
+  .botoes {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto; /* corrigido: antes tinha 'top: auto%' que é inválido */
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .botoes .botao {
+    width: 60px;
+    height: 60px;
+  }
+
+  .botoes .botao img {
+    max-width: 60px;
+  }
+}
+
+@media (max-width: 425px) {
+  .conteudo {
+    padding: 12px;
+  }
+
+  .botoes {
+    padding: 8px;
+  }
+
+  .botoes .botao {
+    width: 50px;
+    height: 50px;
+  }
+
+  .botoes .botao img {
+    max-width: 50px;
+  }
+}

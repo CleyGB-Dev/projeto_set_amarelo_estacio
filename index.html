@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&family=Secular+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/css/reset.css" />
+  <link rel="stylesheet" href="./src/css/estilos.css" />
+  <link rel="stylesheet" href="./src/css/responsivo.css" />
+  <link rel="stylesheet" href="src/styles/styles.css" />
+  <title>Caminhada Setembro Amarelo Estácio</title>
+</head>
+
+<body>
+  <main class="container-geral">
+    <div class="cont selecionado">
+      <picture>
+        <source srcset="./src/imagens/bg_index.png" media="(min-width: 768px)" />
+        <img class="imagem" src="src/imagens/bg-setembro_amarelo-mobile.png" alt="Imagem Início" />
+      </picture>
+
+      <div class="conteudo cadastro-flex">
+        <div id="form_container">
+          <div id="form_header">
+            <h1 id="form_title">Inscrever-se</h1>
+          </div>
+          <form action="processa_formulario.php" method="POST" id="form">
+            <div id="input_container">
+              <div class="input_box">
+                <label for="name" class="form-label">Nome completo</label>
+                <div class="input-field">
+                  <input type="text" name="name" id="name" class="form-control" placeholder="Samuel Da Silva" />
+                  <i class="fa-regular fa-user"></i>
+                </div>
+              </div>
+              <div class="input_box">
+                <label for="birthdate" class="form-label">Nascimento</label>
+                <div class="input-field">
+                  <input type="date" name="birthdate" id="birthdate" class="form-control" />
+                </div>
+              </div>
+              <div class="input_box">
+                <label for="email" class="form-label">E-mail</label>
+                <div class="input-field">
+                  <input type="email" name="email" id="email" class="form-control" placeholder="exemplo@gmail.com" />
+                  <i class="fa-regular fa-envelope"></i>
+                </div>
+              </div>
+              <div class="input_box">
+                <label for="bairro" class="form-label">Bairro</label>
+                <div class="input-field">
+                  <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Rua dos Alfaiates" />
+                  <i class="fa-regular fa-user"></i>
+                </div>
+              </div>
+              <div class="input_box">
+                <label for="alunos_estacio" class="form-label">Aluno Estácio</label>
+                <div class="input-field">
+                  <select name="alunos_estacio" id="alunos_estacio" class="form-control">
+                    <option value="" disabled selected hidden>Escolha uma opção</option>
+                    <option value="sim">Sim</option>
+                    <option value="nao">Não</option>
+                  </select>
+                  <i class="fa-regular fa-user"></i>
+                </div>
+              </div>
+              <div class="input_box">
+                <label for="comorbidade" class="form-label">Comorbidades</label>
+                <div class="input-field">
+                  <select name="comorbidade" id="comorbidade" class="form-control">
+                    <option value="" disabled selected>Selecione uma comorbidade</option>
+                    <option value="nao">Não possuo comorbidades</option>
+                    <option value="hipertensao">Hipertensão arterial</option>
+                    <option value="diabetes">Diabetes</option>
+                    <option value="doenca_cardiaca">Doença cardíaca</option>
+                    <option value="doenca_respiratoria">Doença respiratória crônica</option>
+                    <option value="obesidade">Obesidade</option>
+                    <option value="cancer">Câncer</option>
+                    <option value="doenca_renal">Doença renal crônica</option>
+                    <option value="doenca_hepatica">Doença hepática crônica</option>
+                    <option value="imunossupressao">Imunossupressão</option>
+                    <option value="doenca_neurologica">Doença neurológica crônica</option>
+                    <option value="outros">Outros</option>
+                  </select>
+                  <i class="fa-regular fa-user"></i>
+                </div>
+              </div>
+              <div class="radio-container">
+                <label class="form-label">Gênero</label>
+                <div id="gender_inputs">
+                  <div class="radio-box">
+                    <input type="radio" name="gender" id="female" class="form-control" value="female" />
+                    <label for="female" class="form-label">Feminino</label>
+                  </div>
+                  <div class="radio-box">
+                    <input type="radio" name="gender" id="male" class="form-control" value="male" />
+                    <label for="male" class="form-label">Masculino</label>
+                  </div>
+                  <div class="radio-box">
+                    <input type="radio" name="gender" id="others" class="form-control" value="others" />
+                    <label for="others" class="form-label">Outros</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn-default">
+              <i class="fa-solid fa-check"></i>
+              Inscreva-se
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cont">
+      <picture>
+        <source srcset="./src/imagens/bg_setembro_amarelo.png" media="(min-width: 768px)" />
+        <img class="imagem" src="./src/imagens/bg-setembro_amarelo-mobile.png" alt="Imagem Setembro Amarelo" />
+      </picture>
+    </div>
+
+    <div class="cont">
+      <picture>
+        <source srcset="./src/imagens/bg_sobre_nos.png" media="(min-width: 768px)" />
+        <img class="imagem" src="./src/imagens/bg-setembro_amarelo-mobile.png" alt="Imagem Sobre Nós" />
+      </picture>
+    </div>
+
+    <div class="cont">
+      <picture>
+        <source srcset="./src/imagens/bg-setembro_amarelo.png" media="(min-width: 768px)" />
+        <img class="imagem" src="./src/imagens/bg-setembro_amarelo-mobile.png" alt="Imagem Patrocinadores" />
+      </picture>
+      <div class="conteudo">
+        <h2 class="nome-personagem">Nossos Patrocinadores</h2>
+        <p class="descricao">A realização deste projeto só foi possível graças ao apoio e parceria...</p>
+        <p>Se você ou sua empresa também deseja apoiar essa iniciativa, entre em contato conosco.</p>
+      </div>
+    </div>
+  </main>
+
+  <ul class="botoes">
+    <li><button class="botao selecionado"><img src="src/imagens/icone-setembro_amarelo_index.png" alt="Ícone index"></button></li>
+    <li><button class="botao"><img src="src/imagens/icone-setembro_amarelo.png" alt="Ícone Setembro Amarelo" /></button></li>
+    <li><button class="botao"><img src="src/imagens/icone-setembro_amarelo_abaut_us.png" alt="Ícone Sobre Nós" /></button></li>
+    <li><button class="botao"><img src="src/imagens/icone-setembro_amarelo_patrocinio.jpg" alt="Ícone Patrocínio" /></button></li>
+  </ul>
+
+  <script src="./src/js/index.js" defer></script>
+</body>
+
+</html>

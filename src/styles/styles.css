@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.btn-default {
+    background-color: #ff8800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    cursor: pointer;
+    gap: 8px;
+    height: fit-content;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.btn-default:hover {
+    background-color: #777775;
+}
+/*pc */
+.cadastro-flex {
+    position: absolute;
+    top: 265%; /* Posiciona mais para baixo na tela (ajuste aqui para descer mais/menos) */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza somente horizontalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+#form_container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #f5ff6d; /* cor clara para destacar o formulário */
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+#form_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#form_title {
+    font-weight: 500;
+    color: #2c2c2c;
+    position: relative;
+}
+
+#form_title::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    border-radius: 30px;
+    background-color: #000000;
+    left: 0;
+    bottom: 0;
+}
+
+#form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 32px;
+    height: 100%;
+}
+
+#input_container {
+    display: grid;
+    gap: 24px;
+}
+
+.form-label {
+    font-size: 12px;
+    color: #404044;
+    font-weight: 500;
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    background-color: #ffff;
+    border-radius: 8px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+.input-field i {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 20px;
+    color: #404044;
+}
+
+.form-control {
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    outline: none;
+}
+
+.input_box .input-field:focus-within {
+    outline: 2px solid #6366f1;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+    color: #000;
+}
+
+.radio-container {
+    grid-column: span 2;
+}
+
+#gender_inputs {
+    display: flex;
+    gap: 20px;
+}
+
+.radio-box {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.error {
+    color: rgb(230, 4, 4);
+    font-size: 12px;
+    margin-top: 4px;
+    max-width: 200px;
+}
+
+.input_box.invalid .form-label {
+    color: rgb(230, 4, 4);
+}
+
+.input_box.invalid .input-field {
+    border: 1px solid rgb(230, 4, 4);
+}
+
+.input_box.valid .form-label {
+    color: #19b954;
+}
+
+.input_box.valid .input-field {
+    border: 1px solid #19b954;
+}
+
+.radio-container.invalid .form-label:first-child {
+    color: rgb(230, 4, 4);
+}
+
+.radio-container.valid .form-label:first-child {
+    color: #19b954;
+}
+
+/* Responsividade */
+@media screen and (max-width: 500px) {
+    .cadastro-flex {
+        position: absolute;
+        top: 30%; /* Ainda mais para baixo em telas pequenas */
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        z-index: 10;
+    }
+
+    #form_container {
+        max-width: 95%;
+        border-radius: 20px;
+        height: auto;
+        padding: 16px;
+    }
+
+    #input_container {
+        display: flex;
+        flex-direction: column;
+        gap: 38px;
+    }
+
+    .form-control[type="date"] {
+        background-color: #fff;
+    }
+
+    .radio-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #gender_inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .radio-box {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-direction: row-reverse;
+    }
+
+    .radio-box label {
+        cursor: pointer;
+    }
+}
