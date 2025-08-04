@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+/* Cabeçalho fixo no topo */
+header {
+    background: linear-gradient(to bottom, #facc00, #f5e6a4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    box-shadow: 0px 2px 80px #fce943;
+    position: fixed;        /* Fixado no topo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;          /* Sempre acima de tudo */
+    flex-wrap: wrap;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Sombra e leve escurecimento no scroll */
+header.scrolled {
+    box-shadow: 0 4px 15px #fce943;
+    background-color: #f7c600;
+}
+
+/* Logo Estácio */
+#estacio img {
+    height: 70px;
+}
+
+/* Menu de páginas */
+#outras_paginas {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+#outras_paginas ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#outras_paginas ul li a {
+    text-decoration: none;
+    background-color: #ffee58;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+#outras_paginas ul li a:hover {
+    background-color: #ecd504; /* tom diferente no hover */
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* Espaçamento para compensar o header fixo */
+body {
+    padding-top: 70px; /* Ajuste esse valor para a altura do seu header */
+}
+
+/*///////*/
+#rodape-site {
+  background-color: #333;
+  color: #f5f5f5;
+  padding: 2em 1em;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-size: 0.95em;
+  margin-top: 4em;
+}
+
+.rodape-conteudo p {
+  margin: 0.5em 0;
+}
+
+#rodape-site a.link-rodape {
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#rodape-site a.link-rodape:hover {
+  text-decoration: underline;
+}
+
+#btn-menu {
+  display: none; /* só mostra no celular */
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  #btn-menu {
+    display: block;
+  }
+
+  #outras_paginas {
+    display: none; /* esconde menu por padrão */
+    flex-direction: column;
+    background-color: #ffee58;
+    position: absolute;
+    top: 70px; /* altura do header */
+    right: 0;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 0 0 0 8px;
+    z-index: 9998;
+  }
+
+  #outras_paginas.show {
+    display: flex;
+  }
+}
+
+#estacio a {
+  text-decoration: none;
+  display: inline-block;
+}

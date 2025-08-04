@@ -1,156 +1,304 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/head.css">
+        <link rel="icon" href="img/fita.png" type="image/png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">    
+        <title>Caminhada Pela Vida!</title>
+    </head>  
+    <!--Isso aqui é javascript pra poder rodar o sim ou não-->
+<script>
+function mostrarCampos(mostrar) {
+  const campos = document.getElementById('camposIndicacao');
+  campos.style.display = mostrar ? 'block' : 'none';
+}
+</script>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&family=Secular+One&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./src/css/reset.css" />
-  <link rel="stylesheet" href="./src/css/estilos.css" />
-  <link rel="stylesheet" href="./src/css/responsivo.css" />
-  <link rel="stylesheet" href="src/styles/styles.css" />
-  <title>Caminhada Setembro Amarelo Estácio</title>
-</head>
-
-<body>
-  <main class="container-geral">
-    <div class="cont selecionado">
-      <picture>
-        <source srcset="./src/imagens/bg_index.png" media="(min-width: 768px)" />
-        <img class="imagem" src="src/imagens/bg-setembro_amarelo-mobile.png" alt="Imagem Início" />
-      </picture>
-
-      <div class="conteudo cadastro-flex">
-        <div id="form_container">
-          <div id="form_header">
-            <h1 id="form_title">Inscrever-se</h1>
-          </div>
-          <form action="processa_formulario.php" method="POST" id="form">
-            <div id="input_container">
-              <div class="input_box">
-                <label for="name" class="form-label">Nome completo</label>
-                <div class="input-field">
-                  <input type="text" name="name" id="name" class="form-control" placeholder="Samuel Da Silva" />
-                  <i class="fa-regular fa-user"></i>
-                </div>
-              </div>
-              <div class="input_box">
-                <label for="birthdate" class="form-label">Nascimento</label>
-                <div class="input-field">
-                  <input type="date" name="birthdate" id="birthdate" class="form-control" />
-                </div>
-              </div>
-              <div class="input_box">
-                <label for="email" class="form-label">E-mail</label>
-                <div class="input-field">
-                  <input type="email" name="email" id="email" class="form-control" placeholder="exemplo@gmail.com" />
-                  <i class="fa-regular fa-envelope"></i>
-                </div>
-              </div>
-              <div class="input_box">
-                <label for="bairro" class="form-label">Bairro</label>
-                <div class="input-field">
-                  <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Rua dos Alfaiates" />
-                  <i class="fa-regular fa-user"></i>
-                </div>
-              </div>
-              <div class="input_box">
-                <label for="alunos_estacio" class="form-label">Aluno Estácio</label>
-                <div class="input-field">
-                  <select name="alunos_estacio" id="alunos_estacio" class="form-control">
-                    <option value="" disabled selected hidden>Escolha uma opção</option>
-                    <option value="sim">Sim</option>
-                    <option value="nao">Não</option>
-                  </select>
-                  <i class="fa-regular fa-user"></i>
-                </div>
-              </div>
-              <div class="input_box">
-                <label for="comorbidade" class="form-label">Comorbidades</label>
-                <div class="input-field">
-                  <select name="comorbidade" id="comorbidade" class="form-control">
-                    <option value="" disabled selected>Selecione uma comorbidade</option>
-                    <option value="nao">Não possuo comorbidades</option>
-                    <option value="hipertensao">Hipertensão arterial</option>
-                    <option value="diabetes">Diabetes</option>
-                    <option value="doenca_cardiaca">Doença cardíaca</option>
-                    <option value="doenca_respiratoria">Doença respiratória crônica</option>
-                    <option value="obesidade">Obesidade</option>
-                    <option value="cancer">Câncer</option>
-                    <option value="doenca_renal">Doença renal crônica</option>
-                    <option value="doenca_hepatica">Doença hepática crônica</option>
-                    <option value="imunossupressao">Imunossupressão</option>
-                    <option value="doenca_neurologica">Doença neurológica crônica</option>
-                    <option value="outros">Outros</option>
-                  </select>
-                  <i class="fa-regular fa-user"></i>
-                </div>
-              </div>
-              <div class="radio-container">
-                <label class="form-label">Gênero</label>
-                <div id="gender_inputs">
-                  <div class="radio-box">
-                    <input type="radio" name="gender" id="female" class="form-control" value="female" />
-                    <label for="female" class="form-label">Feminino</label>
-                  </div>
-                  <div class="radio-box">
-                    <input type="radio" name="gender" id="male" class="form-control" value="male" />
-                    <label for="male" class="form-label">Masculino</label>
-                  </div>
-                  <div class="radio-box">
-                    <input type="radio" name="gender" id="others" class="form-control" value="others" />
-                    <label for="others" class="form-label">Outros</label>
-                  </div>
-                </div>
-              </div>
+    <body>
+        <!-- Cabeçalho da página -->
+        <header>
+            <div id="estacio">
+                <a href="index.html" title="Voltar para a página inicial">
+                    <img src="img/estacio.png" alt="Estácio">
+                </a>
             </div>
-            <button type="submit" class="btn-default">
-              <i class="fa-solid fa-check"></i>
-              Inscreva-se
-            </button>
-          </form>
-        </div>
+            <button id="btn-menu" aria-label="Abrir menu">&#9776;</button>
+            <nav id="outras_paginas">
+                <ul>
+                    <li><a href="index.html">Página Inicial</a></li>
+                    <li><a href="setembro.html">Setembro Amarelo</a></li>
+                    <li><a href="patrocinio.html">Patrocinadores</a></li>
+                    <li><a href="sobre_estacio.html">Sobre Nós</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div id="banner"></div>  <!--Banner definido no css-->
+
+
+            <div class="info-conteiner">
+                <div class="info-bloco"><img src="img/calendario.png" alt="data" width="35"> <span>28 de Setembro</span></div>
+                <div class="info-bloco"><img src="img/relogio.png" alt="hora" width="35"> <span>A partir das 08:00</span></div>
+                <div class="info-bloco"><img src="img/marcador.png" alt="local" width="35"> <span>Percurso de 4km</span></div>
+                <div class="info-bloco"><img src="img/cruz.png" alt="organização" width="35"> <span>Estácio + Prefeitura de Duque de Caxias</span></div>
+
+            </div>
+            <div class="evento-form-wrapper">
+                <div id="form_container">
+                    <div id="form_header">
+                        <h1 id="form_title">Inscrever-se</h1>
+                         <div class="contador-kit">
+   <strong>Restam <span id="timer"></span> para garantir o seu kit exclusivo do evento!</strong>
+</div>
+                    </div>
+                    <form action="processa_formulario.php" method="POST" id="form">
+                        <input type="text" name="hpfield" id="hpfield" style="display: none;"> <!-- Campo escondido para pegar bots -->
+                        <div id="input_container">
+                            <div class="input_box">
+                                <label for="name" class="form-label">Nome completo</label>
+                                <div class="input-field">
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Nome completo" required>
+                                    <i class="fa-regular fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="input_box">
+                                <label for="birthdate" class="form-label">Nascimento</label>
+                                <div class="input-field">
+                                    <input type="date" name="birthdate" id="birthdate" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="input_box">
+                                <label for="email" class="form-label">E-mail</label>
+                                <div class="input-field">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="exemplo@exemplo.com" required>
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div> 
+                            </div>
+                            <div class="input_box">
+                                <label for="phone" class="form-label">Número de telefone</label>
+                                <div class="input-field">
+                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="(21) 90000-000" required>
+                                   <i class="fa-solid fa-phone"></i>
+                                </div>
+                            </div>                           
+                            <div class="input_box">
+                                <label for="bairro" class="form-label">Bairro</label>
+                                <div class="input-field">
+                                    <input type="text" name="bairro" id="bairro" class="form-control" placeholder="Digite seu endereço" required>
+                                    <i class="fa-regular fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="input_box">
+                                <label for="alunos_estacio" class="form-label">Aluno Estácio?</label>
+                                <div class="input-field">
+                                    <select name="alunos_estacio" id="alunos_estacio" class="form-control" required>
+                                        <option value="" disabled selected hidden>Selecione</option>
+                                        <option value="sim">Sim</option>
+                                        <option value="nao">Não</option>
+                                    </select>
+                                <i class="fa-regular fa-user"></i>
+                                </div>
+                            </div >
+
+                            <!-- Pergunta sobre indicação -->
+                            <div>
+                                    <label for="indicacao">Indicação de um aluno?</label><br>
+                                    <input type="radio" name="indicacao" value="sim" onclick="mostrarCampos(true)"> Sim
+                                    <input type="radio" name="indicacao" value="nao" onclick="mostrarCampos(false)"> Não
+
+                            <!-- Campos extras (só aparecem se clicar "Sim") -->
+                            <div   id="camposIndicacao" style="display: none; margin-top: 10px;">
+                                    <label for="nome_indicador">Nome do aluno que indicou:</label><br>
+                                    <input type="text" name="nome_indicador" id="nome_indicador" placeholder="Ex: João da Silva"><br><br>
+
+                                    <label for="matricula_indicador">Matrícula do aluno:</label><br>
+                                    <input type="text" name="matricula_indicador" id="matricula_indicador"      placeholder="Ex: 2023123456">
+                                </div>
+                            </div> 
+                                 
+                            <div class="input_box">
+                                <label for="comorbidade" class="form-label">Possui alguma comorbidade?</label>
+                                <div class="input-field">
+                                    <select name="comorbidade" id="comorbidade" class="form-control" required>
+                                        <option value="" disabled selected>Selecione</option>
+                                        <option value="nao">Não possuo comorbidades</option>
+                                        <option value="hipertensao">Hipertensão arterial</option>
+                                        <option value="diabetes">Diabetes</option>
+                                        <option value="doenca_cardiaca">Doença cardíaca</option>
+                                        <option value="doenca_respiratoria">Doença respiratória crônica</option>
+                                        <option value="obesidade">Obesidade</option>
+                                        <option value="cancer">Câncer</option>
+                                        <option value="doenca_renal">Doença renal crônica</option>
+                                        <option value="doenca_hepatica">Doença hepática crônica</option>
+                                        <option value="imunossupressao">Imunossupressão</option>
+                                        <option value="doenca_neurologica">Doença neurológica crônica</option>
+                                        <option value="outros">Outros</option>
+                                    </select>
+                                    <i class="fa-regular fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="radio-container">
+                                <label class="form-label">Gênero</label>
+                                <div id="gender_inputs">
+                                    <div class="radio-box">
+                                        <input type="radio" name="gender" id="female" class="form-control" value="female" required>
+                                        <label for="female" class="form-label">Feminino</label>
+                                    </div>
+                                    <div class="radio-box">
+                                        <input type="radio" name="gender" id="male" class="form-control" value="male" required>
+                                        <label for="male" class="form-label">Masculino</label>
+                                    </div>
+                                    <div class="radio-box">
+                                        <input type="radio" name="gender" id="others" class="form-control" value="others" required>
+                                        <label for="others" class="form-label">Prefiro não responder</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-default"><i class="fa-solid fa-check"></i> Inscreva-se</button>
+                    </form>
+    
+                </div>
+                <section class="detalhes-evento">
+                <div id="estacio_logo_texto">
+                    <img src="img/Logo_Estacio_Movimento.png" alt="Estácio">
+                </div>
+
+                    <h2>PROJETO: ESTÁCIO EM MOVIMENTO PELA VIDA</h2>
+                    <p><strong>Tema:</strong> Valorização da vida, saúde física, mental e social</p>
+                    <p><strong>Data:</strong> 28 de setembro de 2025</p>
+                    <p><strong>Ponto de encontro:</strong> Universidade Estácio - Polo Santa Cruz da Serra  <br> Endereço: Avenida Automóvel Clube, 919 </p>
+                    <br>
+
+<div id="carousel" class="carousel">
+  <button class="carousel-btn prev" aria-label="Imagem anterior">&#10094;</button>
+  <div class="carousel-inner">
+     <img src="img/2.webp" loading="lazy"  alt="Banner" />
+        <img src="img/1.webp" loading="lazy"  alt="Banner" />
+        <img src="img/5.webp" loading="lazy"  alt="Banner" />
+        <img src="img/6.webp" loading="lazy"  alt="Banner" />
+        <img src="img/8.webp" loading="lazy"  alt="Banner" />
+        <img src="img/11.webp" loading="lazy"  alt="Banner" />
+        <img src="img/16.webp" loading="lazy"  alt="Banner" />
+        <img src="img/19.webp" loading="lazy"  alt="Banner" />
+        <img src="img/20.webp" loading="lazy"  alt="Banner" />
+        <img src="img/25.webp" loading="lazy"  alt="Banner" />
+        <img src="img/27.webp" loading="lazy"  alt="Banner" />
+        <img src="img/28.webp" loading="lazy"  alt="Banner" />
+        <img src="img/29.webp" loading="lazy"  alt="Banner" />
+        <img src="img/30.webp" loading="lazy"  alt="Banner" />
+        <img src="img/32.webp" loading="lazy"  alt="Banner" />
+        <img src="img/35.webp" loading="lazy"  alt="Banner" />
+        <img src="img/36.webp" loading="lazy"  alt="Banner" />
+        <img src="img/38.webp" loading="lazy"  alt="Banner" />
+        <img src="img/40.webp" loading="lazy"  alt="Banner" />
+        <img src="img/43.webp" loading="lazy"  alt="Banner" />
+        <img src="img/44.webp" loading="lazy"  alt="Banner" />
+        <img src="img/45.webp" loading="lazy"  alt="Banner" />
+        <img src="img/46.webp" loading="lazy"  alt="Banner" />
+        <img src="img/47.webp" loading="lazy"  alt="Banner" />
+        <img src="img/48.webp" loading="lazy"  alt="Banner" />
+        <img src="img/49.webp" loading="lazy"  alt="Banner" />
+        <img src="img/50.webp" loading="lazy"  alt="Banner" />
+        <img src="img/51.webp" loading="lazy"  alt="Banner" />
+        <img src="img/52.webp" loading="lazy"  alt="Banner" />
+        <img src="img/53.webp" loading="lazy"  alt="Banner" />
+        <img src="img/54.webp" loading="lazy"  alt="Banner" />
+        <img src="img/55.webp" loading="lazy"  alt="Banner" />
+        <img src="img/57.webp" loading="lazy"  alt="Banner" />
+        <img src="img/58.webp" loading="lazy"  alt="Banner" />
+        <img src="img/59.webp" loading="lazy"  alt="Banner" />
+        <img src="img/60.webp" loading="lazy"  alt="Banner" />
+  </div>
+  <button class="carousel-btn next" aria-label="Próxima imagem">&#10095;</button>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <button id="modal-prev" class="modal-nav">&#10094;</button>
+  <img id="modal-img" class="modal-content" alt="Imagem ampliada" />
+  <button id="modal-next" class="modal-nav">&#10095;</button>
+  <span id="modal-close" class="modal-close">&times;</span>
+</div>
+
+                    <h3>Estações:</h3><br>
+                    <ul id="lista">
+                        <li><strong>Nutrição:</strong> Receitas low carb, sucos detox e explicação prática.</li>
+                        <li><strong>Educação Física:</strong> Alongamento, aquecimento e palestra dos alunos.</li>
+                        <li><strong>Fisioterapia:</strong> Mobilidade articular, funcional e postura.</li>
+                        <li><strong>Saúde:</strong> Aferição, orientação e primeiros socorros.</li>
+                        <li><strong>Gestão e Tecnologia:</strong> Pesquisa, organização e parcerias.</li>
+                        <li><strong>Serviço Social:</strong> Escuta ativa, mensagens e empatia.</li>
+                    </ul>
+                    <section id="kit-exclusivo" class="kit-exclusivo">
+                        <br>
+  <h3>Kit Exclusivo do Evento:</h3>
+  <br>
+  <p class="kit-descricao">Os 100 primeiros incritos receberão um kit incrível! Confira abaixo os itens que estarão inclusos:</p>
+
+  <div class="kit-itens">
+    <div class="kit-item">
+      <img src="img/COLETE001.png" alt="Colete">
+      <p>Colete</p>
+    </div>
+    <div class="kit-item">
+      <img src="img/Bag.png" alt="Bolsa">
+      <p>Bag</p>
+    </div>
+    <div class="kit-item">
+      <img src="img/Viseira.png" alt="Viseira">
+      <p>Viseira</p>
+    </div>
+    <div class="kit-item">
+      <img src="img/medalha.png" alt="Medalha">
+      <p>Medalha</p>
+    </div>
+  </div>
+</section>
+                </section>
+            </div>
+        </main>
+        <footer id="rodape-site">
+    <div class="rodape-conteudo">
+      <div id="estacio">
+        <a href="index.html" title="Voltar para a página inicial">
+          <img src="img/estacio_o_inimigo_agora_e_outro.png" alt="Estácio" />
+        </a>
       </div>
-
+      <p>&copy; 2025 Caminhada Pela Vida — Setembro Amarelo</p>
+      <p>Conteúdo institucional do Polo Estácio Santa Cruz da Serra</p>
+      <p><a href="sobre.html" class="link-rodape">Desenvolvido por integrantes da turma de TI — Estácio (2025.1)</a></p>
     </div>
+  </footer>
+        <script src="css/src/javascript/script.js"></script>
+        <script src="css/src/javascript/validador.js"></script>
 
-    <div class="cont">
-      <picture>
-        <source srcset="./src/imagens/bg_setembro_amarelo.png" media="(min-width: 768px)" />
-        <img class="imagem" src="./src/imagens/bg-setembro_amarelo-mobile.png" alt="Imagem Setembro Amarelo" />
-      </picture>
-    </div>
+<script>
+const deadline = new Date("August 15, 2025 23:59:59").getTime(); 
 
-    <div class="cont">
-      <picture>
-        <source srcset="./src/imagens/bg_sobre_nos.png" media="(min-width: 768px)" />
-        <img class="imagem" src="./src/imagens/bg-setembro_amarelo-mobile.png" alt="Imagem Sobre Nós" />
-      </picture>
-    </div>
+const timerInterval = setInterval(() => {
+  const now = new Date().getTime();
+  const distance = deadline - now;
 
-    <div class="cont">
-      <picture>
-        <source srcset="./src/imagens/bg-setembro_amarelo.png" media="(min-width: 768px)" />
-        <img class="imagem" src="./src/imagens/bg-setembro_amarelo-mobile.png" alt="Imagem Patrocinadores" />
-      </picture>
-      <div class="conteudo">
-        <h2 class="nome-personagem">Nossos Patrocinadores</h2>
-        <p class="descricao">A realização deste projeto só foi possível graças ao apoio e parceria...</p>
-        <p>Se você ou sua empresa também deseja apoiar essa iniciativa, entre em contato conosco.</p>
-      </div>
-    </div>
-  </main>
+  if (distance < 0) {
+    clearInterval(timerInterval);
+    document.getElementById("timer").textContent = "o tempo acabou 😢";
+    return;
+  }
 
-  <ul class="botoes">
-    <li><button class="botao selecionado"><img src="src/imagens/icone-setembro_amarelo_index.png" alt="Ícone index"></button></li>
-    <li><button class="botao"><img src="src/imagens/icone-setembro_amarelo.png" alt="Ícone Setembro Amarelo" /></button></li>
-    <li><button class="botao"><img src="src/imagens/icone-setembro_amarelo_abaut_us.png" alt="Ícone Sobre Nós" /></button></li>
-    <li><button class="botao"><img src="src/imagens/icone-setembro_amarelo_patrocinio.jpg" alt="Ícone Patrocínio" /></button></li>
-  </ul>
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  <script src="./src/js/index.js" defer></script>
-</body>
-
+  document.getElementById("timer").textContent =
+    `${hours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}min ${seconds.toString().padStart(2, '0')}s`;
+}, 1000);
+</script>
+        
+    </body>
 </html>

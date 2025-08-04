@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7e952;
+    color: #333;
+    background: linear-gradient(to bottom, #fff170 0%, #ffeb8f 30%, rgb(255, 225, 91) 60%, #ffdd45 100%);
+    background-repeat: no-repeat;
+    background-size: cover; /* opcional: faz a imagem cobrir toda a tela */
+    background-position: center; /* opcional: centraliza a imagem */
+}
+
+
+footer {
+    position: bottom;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000; /* cor de fundo */
+    color: white; /* cor do texto */
+    text-align: center;
+    padding: 0px;
+    z-index: 1000; /* garante que fique acima de outros elementos */
+}
+
+#equipe-patrocinio {
+  max-width: 100%;  /* ou qualquer largura que quiser */
+  margin: 0 auto;     /* centraliza horizontalmente */
+  padding: 2em 1em;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+
+#equipe-patrocinio h2 {
+  font-size: 2em;
+  color: #d4af37;
+  margin-bottom: 2em;
+}
+
+.patrocinio {
+  margin-bottom: 2em;
+}
+
+.patrocinio img {
+  width: 190px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10%;
+  border: 4px solid #ffd139;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.patrocinio h3 {
+  margin: 0.6em 0 0.2em;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.patrocinio p {
+  margin: 0;
+  font-size: 0.95em;
+  color: #666;
+}
+
+
+/* Grade da equipe */
+.grid-patrocinio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5em;
+  padding: 2em 1em;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.patrocinio {
+  background-color: #fff; /* cor base, será sobrescrita */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 1em;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.patrocinio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.patrocinio img {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  margin-bottom: 0.8em;
+  object-fit: contain;
+  background-color: #ffee58;
+  border-radius: 8px;
+  padding: 0.5em;
+}
+
+.patrocinio h3 {
+  font-size: 1em;
+  color: #222;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0.5em;
+  border-radius: 6px;
+}
+
+
+
+
+#patrocinadores {
+  padding: 2em;
+  background-color: #fff8dc;
+  font-family: Arial, sans-serif;
+  color: #333;
+  max-width: 1000px;
+  margin: 0 auto 3em;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+#patrocinadores h2 {
+  text-align: center;
+  color: #d4af37;
+  margin-bottom: 1em;
+  font-size: 2.2em;
+}
+
+#patrocinadores p {
+  max-width: 700px;
+  margin: 0 auto 1.5em;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+#patrocinadores p:last-child {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+
+#inspiracao{
+    text-align: center;
+}
+
+#texto-evento {
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center; /* centraliza horizontal */
+    align-items: center;     /* centraliza vertical */
+
+}
+
+#banner-patrocinio-css {
+  margin: 60px 0 2em 0;          /* margin-top:60px; margem direita e esquerda 0; margin-bottom: 2em */
+  background: #fbeec2;
+  border-radius: 8px;
+  padding: 3em 1em;
+  text-align: center;
+  width: 100%;                   /* largura total da tela */
+  box-sizing: border-box;        /* inclui padding dentro da largura */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  height: 110px;
+}
+
+#banner-patrocinio-css h1 {
+  font-size: 2.2em;
+  color: #d4af37;
+  margin-bottom: 0.5em;
+}
+
+#banner-patrocinio-css p {
+  font-size: 1.1em;
+  color: #444;
+}
