@@ -23,4 +23,4 @@ MySQL/phpMyAdmin
 Font Awesome para ícones
 
 🙋‍♂️ Autor
-Este projeto foi desenvolvido por mim, e alguns colegas de turma, como parte de uma iniciativa acadêmica no curso de Análise e Desenvolvimento de Sistemas.
+Este projeto foi desenvolvido por mim, e alguns integrantes da turma de TI da Estácio, como parte de uma iniciativa acadêmica no curso de Análise e Desenvolvimento de Sistemas.
