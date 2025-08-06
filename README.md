@@ -9,8 +9,6 @@ O site foi criado para facilitar o acesso às informações do evento, permitind
 
 📢 Divulgação da data, local e propósito da caminhada
 
-👕 Reserva e solicitação de camisetas exclusivas para os participantes
-
 📝 Inscrição dos interessados por meio de um formulário integrado ao banco de dados
 
 🔐 Área administrativa para gerenciamento dos inscritos
