@@ -1,28 +1,28 @@
---- Criação do banco de dados
-CREATE DATABASE IF NOT EXISTS setembro_amarelo DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE setembro_amarelo;
+🟡 Caminhada Setembro Amarelo - Site Informativo
+Este projeto é um site desenvolvido especialmente para a Estácio, com o objetivo de comunicar, divulgar e engajar a comunidade acadêmica e o público em geral sobre a Caminhada do Setembro Amarelo, uma ação de conscientização e prevenção ao suicídio.
 
--- Criação da tabela de inscrições
-CREATE TABLE IF NOT EXISTS inscricoes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    nascimento DATE NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    bairro VARCHAR(100),
-    aluno_estacio VARCHAR(10),
-    comorbidade VARCHAR(100),
-    genero VARCHAR(20),
-    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+📌 Sobre o evento
+A Caminhada Setembro Amarelo é uma iniciativa promovida pela Estácio para reforçar a importância do cuidado com a saúde mental. O evento visa unir alunos, professores, colaboradores e a sociedade em um momento de reflexão, apoio e empatia.
 
--- Criação da tabela de usuários (admin)
-CREATE TABLE IF NOT EXISTS users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(100) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+💻 Sobre o site
+O site foi criado para facilitar o acesso às informações do evento, permitindo:
 
--- Inserção de um usuário admin (senha: 123456)
-INSERT INTO users (username, password) VALUES
-('admin', '$2y$10$OhN1vOkAPOZpQY8q7DZfLuNT1Q9I6E4JrLwM12.iO6SU22xligMem');
+📢 Divulgação da data, local e propósito da caminhada
+
+👕 Reserva e solicitação de camisetas exclusivas para os participantes
+
+📝 Inscrição dos interessados por meio de um formulário integrado ao banco de dados
+
+🔐 Área administrativa para gerenciamento dos inscritos
+
+🛠️ Tecnologias utilizadas
+HTML5, CSS3 e JavaScript
+
+PHP (para processar formulários e interagir com o banco de dados)
+
+MySQL/phpMyAdmin
+
+Font Awesome para ícones
+
+🙋‍♂️ Autor
+Este projeto foi desenvolvido por mim, e alguns colegas de turma, como parte de uma iniciativa acadêmica no curso de Análise e Desenvolvimento de Sistemas.
