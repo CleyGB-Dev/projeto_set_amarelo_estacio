@@ -1,6 +1,4 @@
 <?php
-// edit.php
-
 $conn = new mysqli("localhost", "root", "", "setembro_amarelo");
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
@@ -24,13 +22,13 @@ if (!$participante) {
     exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
 <title>Editar Participante</title>
 <style>
-    /* Mesma estilização do add.php */
     body {
         font-family: 'Poppins', sans-serif;
         background: #fff6a3;
@@ -46,7 +44,7 @@ if (!$participante) {
         border-radius: 12px;
         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         padding: 30px 40px;
-        max-width: 500px;
+        max-width: 600px;
         width: 100%;
     }
     h2 {
@@ -72,14 +70,10 @@ if (!$participante) {
         border: 1px solid #ccc;
         border-radius: 8px;
         font-size: 1rem;
-        transition: border-color 0.3s ease;
         width: 100%;
         box-sizing: border-box;
     }
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="date"]:focus,
-    select:focus {
+    input:focus, select:focus {
         outline: none;
         border-color: #6366f1;
         box-shadow: 0 0 5px rgba(99, 102, 241, 0.5);
@@ -108,11 +102,8 @@ if (!$participante) {
     a.back-link:hover {
         text-decoration: underline;
     }
-    @media (max-width: 600px) {
-        .form-container {
-            padding: 20px;
-            margin: 10px;
-        }
+    #indicador-campos {
+        display: none;
     }
 </style>
 </head>
@@ -132,6 +123,9 @@ if (!$participante) {
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" value="<?= htmlspecialchars($participante['email']) ?>" required>
 
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" value="<?= htmlspecialchars($participante['telefone']) ?>">
+
         <label for="bairro">Bairro:</label>
         <input type="text" id="bairro" name="bairro" value="<?= htmlspecialchars($participante['bairro']) ?>">
 
@@ -142,21 +136,49 @@ if (!$participante) {
             <option value="Não" <?= ($participante['aluno_estacio'] === 'Não') ? 'selected' : '' ?>>Não</option>
         </select>
 
+        <label for="indicacao">Foi indicado por um aluno?</label>
+        <select id="indicacao" name="indicacao" onchange="toggleIndicadorCampos()" required>
+            <option value="">Selecione</option>
+            <option value="sim" <?= ($participante['indicacao'] === 'sim') ? 'selected' : '' ?>>Sim</option>
+            <option value="nao" <?= ($participante['indicacao'] === 'nao') ? 'selected' : '' ?>>Não</option>
+        </select>
+
+        <div id="indicador-campos">
+            <label for="nome_indicador">Nome do Aluno que Indicou:</label>
+            <input type="text" id="nome_indicador" name="nome_indicador" value="<?= htmlspecialchars($participante['nome_indicador']) ?>">
+
+            <label for="matricula_indicador">Matrícula do Aluno Indicador:</label>
+            <input type="text" id="matricula_indicador" name="matricula_indicador" value="<?= htmlspecialchars($participante['matricula_indicador']) ?>">
+        </div>
+
         <label for="comorbidade">Comorbidade:</label>
         <input type="text" id="comorbidade" name="comorbidade" value="<?= htmlspecialchars($participante['comorbidade']) ?>">
 
         <label for="gender">Gênero:</label>
         <select id="gender" name="gender" required>
             <option value="">Selecione</option>
-            <option value="Masculino" <?= ($participante['genero'] === 'Masculino') ? 'selected' : '' ?>>Masculino</option>
-            <option value="Feminino" <?= ($participante['genero'] === 'Feminino') ? 'selected' : '' ?>>Feminino</option>
-            <option value="Outro" <?= ($participante['genero'] === 'Outro') ? 'selected' : '' ?>>Outro</option>
+            <option value="male" <?= ($participante['genero'] === 'Masculino') ? 'selected' : '' ?>>Masculino</option>
+            <option value="female" <?= ($participante['genero'] === 'Feminino') ? 'selected' : '' ?>>Feminino</option>
+            <option value="others" <?= ($participante['genero'] === 'Outro') ? 'selected' : '' ?>>Outro</option>
         </select>
 
         <button type="submit">Atualizar</button>
     </form>
     <a href="dashboard.php" class="back-link">&larr; Voltar ao Dashboard</a>
 </div>
+
+<script>
+function toggleIndicadorCampos() {
+    const select = document.getElementById("indicacao");
+    const campos = document.getElementById("indicador-campos");
+    campos.style.display = (select.value === "sim") ? "block" : "none";
+}
+
+// Mostrar campos se já estiverem preenchidos (edição)
+window.addEventListener("DOMContentLoaded", () => {
+    toggleIndicadorCampos();
+});
+</script>
 
 </body>
 </html>

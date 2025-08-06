@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-// Protege a página, redireciona para login se não estiver logado
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
 }
 
-// Conexão com o banco
 $conn = new mysqli("localhost", "root", "", "setembro_amarelo");
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
@@ -24,7 +22,6 @@ if (isset($_GET['delete_id'])) {
     exit;
 }
 
-// Buscar todos os participantes ordenados por id (mais antigos primeiro)
 $result = $conn->query("SELECT * FROM inscricoes ORDER BY id ASC");
 ?>
 
@@ -37,7 +34,7 @@ $result = $conn->query("SELECT * FROM inscricoes ORDER BY id ASC");
         body {
             font-family: 'Poppins', sans-serif;
             padding: 20px;
-            background:rgb(238, 231, 137);
+            background: rgb(238, 231, 137);
             color: #333;
         }
 
@@ -47,7 +44,6 @@ $result = $conn->query("SELECT * FROM inscricoes ORDER BY id ASC");
             position: relative;
         }
 
-        /* Botão logout no topo direito */
         .logout-btn {
             position: absolute;
             top: 0;
@@ -60,6 +56,7 @@ $result = $conn->query("SELECT * FROM inscricoes ORDER BY id ASC");
             font-weight: 600;
             transition: background-color 0.3s ease;
         }
+
         .logout-btn:hover {
             background: #b91c1c;
         }
@@ -93,13 +90,16 @@ $result = $conn->query("SELECT * FROM inscricoes ORDER BY id ASC");
             font-size: 0.95rem;
             box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
             background-color: white;
+            table-layout: fixed; /* largura fixa para colunas */
         }
 
         th, td {
-            padding: 12px 10px;
+            padding: 10px 8px;
             border: 1px solid #ddd;
             text-align: left;
-            word-break: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; /* evita quebra de linha */
         }
 
         th {
@@ -108,11 +108,25 @@ $result = $conn->query("SELECT * FROM inscricoes ORDER BY id ASC");
             font-size: 1rem;
         }
 
+        /* Define larguras para algumas colunas específicas */
+        th:nth-child(1), td:nth-child(1) { width: 40px; }    /* # */
+        th:nth-child(2), td:nth-child(2) { width: 180px; }   /* Nome */
+        th:nth-child(3), td:nth-child(3) { width: 100px; }   /* Nascimento */
+        th:nth-child(4), td:nth-child(4) { width: 250px; }   /* Email */
+        th:nth-child(5), td:nth-child(5) { width: 120px; }   /* Telefone */
+        th:nth-child(6), td:nth-child(6) { width: 120px; }   /* Bairro */
+        th:nth-child(7), td:nth-child(7) { width: 120px; }    /* Aluno Estácio */
+        th:nth-child(8), td:nth-child(8) { width: 80px; }    /* Indicação */
+        th:nth-child(9), td:nth-child(9) { width: 150px; }   /* Nome Indicador */
+        th:nth-child(10), td:nth-child(10) { width: 120px; } /* Matrícula Indicador */
+        th:nth-child(11), td:nth-child(11) { width: 140px; } /* Comorbidade */
+        th:nth-child(12), td:nth-child(12) { width: 80px; }  /* Gênero */
+        th:nth-child(13), td:nth-child(13) { width: 150px; } /* Ações */
+
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
 
-        /* Botões dentro da tabela - menor, cores diferentes */
         .actions a {
             padding: 6px 12px;
             border-radius: 6px;
@@ -127,7 +141,7 @@ $result = $conn->query("SELECT * FROM inscricoes ORDER BY id ASC");
         }
 
         .actions a.btn-edit {
-            background-color: #6366f1; /* azul */
+            background-color: #6366f1;
         }
 
         .actions a.btn-edit:hover {
@@ -135,7 +149,7 @@ $result = $conn->query("SELECT * FROM inscricoes ORDER BY id ASC");
         }
 
         .actions a.btn-delete {
-            background-color: #ef4444; /* vermelho */
+            background-color: #ef4444;
         }
 
         .actions a.btn-delete:hover {
@@ -153,17 +167,14 @@ $result = $conn->query("SELECT * FROM inscricoes ORDER BY id ASC");
                 padding: 10px;
             }
 
-            th {
-                background-color: #facc00;
-                color: #000;
-            }
-
             td {
                 padding: 8px 5px;
                 position: relative;
                 padding-left: 50%;
                 text-align: left;
-                white-space: normal;
+                white-space: normal; /* permite quebra de linha no mobile */
+                word-break: break-word;
+                overflow: visible; /* mostrar texto completo */
             }
 
             td::before {
@@ -177,14 +188,19 @@ $result = $conn->query("SELECT * FROM inscricoes ORDER BY id ASC");
                 color: #555;
             }
 
-            td:nth-of-type(1)::before { content: "Nome"; }
-            td:nth-of-type(2)::before { content: "Nascimento"; }
-            td:nth-of-type(3)::before { content: "Email"; }
-            td:nth-of-type(4)::before { content: "Bairro"; }
-            td:nth-of-type(5)::before { content: "Aluno Estácio"; }
-            td:nth-of-type(6)::before { content: "Comorbidade"; }
-            td:nth-of-type(7)::before { content: "Gênero"; }
-            td:nth-of-type(8)::before { content: "Ações"; }
+            td:nth-of-type(1)::before { content: "#"; }
+            td:nth-of-type(2)::before { content: "Nome"; }
+            td:nth-of-type(3)::before { content: "Nascimento"; }
+            td:nth-of-type(4)::before { content: "Email"; }
+            td:nth-of-type(5)::before { content: "Telefone"; }
+            td:nth-of-type(6)::before { content: "Bairro"; }
+            td:nth-of-type(7)::before { content: "Aluno Estácio"; }
+            td:nth-of-type(8)::before { content: "Indicação"; }
+            td:nth-of-type(9)::before { content: "Nome Indicador"; }
+            td:nth-of-type(10)::before { content: "Matrícula Indicador"; }
+            td:nth-of-type(11)::before { content: "Comorbidade"; }
+            td:nth-of-type(12)::before { content: "Gênero"; }
+            td:nth-of-type(13)::before { content: "Ações"; }
 
             .actions a {
                 margin-top: 5px;
@@ -193,11 +209,6 @@ $result = $conn->query("SELECT * FROM inscricoes ORDER BY id ASC");
         }
 
         @media print {
-            body {
-                background: none;
-                color: #000;
-            }
-
             .btn-container, .actions, .logout-btn {
                 display: none !important;
             }
@@ -216,50 +227,61 @@ $result = $conn->query("SELECT * FROM inscricoes ORDER BY id ASC");
 </head>
 <body>
 
-    <h1>
-        Dashboard de Participantes
-        <a href="logout.php" class="logout-btn" title="Sair do sistema">Sair</a>
-    </h1>
+<h1>
+    Dashboard de Participantes
+    <a href="logout.php" class="logout-btn" title="Sair do sistema">Sair</a>
+</h1>
 
-    <div class="btn-container">
-        <a href="gera_pdf.php" class="button" target="_blank">📄 Gerar PDF</a>
-        <a href="add.php" class="button">➕ Adicionar Participante</a>
-        <a href="#" class="button" onclick="window.print()">🖨️ Imprimir Lista</a>
-    </div>
+<div class="btn-container">
+    <a href="gera_pdf.php" class="button" target="_blank">🖨️ Imprimir Lista</a>
+    <a href="add.php" class="button">➕ Adicionar Participante</a>
+</div>
 
-    <table>
-        <thead>
+<table>
+    <thead>
+        <tr>
+            <th>#</th> <!-- Número sequencial -->
+            <th>Nome</th>
+            <th>Nascimento</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Bairro</th>
+            <th>Aluno Estácio</th>
+            <th>Indicação</th>
+            <th>Nome Indicador</th>
+            <th>Matrícula Indicador</th>
+            <th>Comorbidade</th>
+            <th>Gênero</th>
+            <th class="actions">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $contador = 1; ?>
+        <?php while ($row = $result->fetch_assoc()): ?>
             <tr>
-                <th>Nome</th>
-                <th>Nascimento</th>
-                <th>Email</th>
-                <th>Bairro</th>
-                <th>Aluno Estácio</th>
-                <th>Comorbidade</th>
-                <th>Gênero</th>
-                <th class="actions">Ações</th>
+                <td><?= $contador ?></td>
+                <td><?= htmlspecialchars($row['nome']) ?></td>
+                <td><?= htmlspecialchars($row['nascimento']) ?></td>
+                <td><?= htmlspecialchars($row['email']) ?></td>
+                <td><?= htmlspecialchars($row['telefone']) ?></td>
+                <td><?= htmlspecialchars($row['bairro']) ?></td>
+                <td><?= htmlspecialchars($row['aluno_estacio']) ?></td>
+                <td><?= htmlspecialchars($row['indicacao']) ?></td>
+                <td><?= htmlspecialchars($row['nome_indicador']) ?></td>
+                <td><?= htmlspecialchars($row['matricula_indicador']) ?></td>
+                <td><?= htmlspecialchars($row['comorbidade']) ?></td>
+                <td><?= htmlspecialchars($row['genero']) ?></td>
+                <td class="actions">
+                    <a href="edit.php?id=<?= $row['id'] ?>" class="btn-edit" title="Editar participante">Editar</a>
+                    <a href="dashboard.php?delete_id=<?= $row['id'] ?>" class="btn-delete" title="Excluir participante" onclick="return confirm('Excluir participante?');">Excluir</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            <?php while ($row = $result->fetch_assoc()): ?>
-                <tr>
-                    <td><?= htmlspecialchars($row['nome']) ?></td>
-                    <td><?= htmlspecialchars($row['nascimento']) ?></td>
-                    <td><?= htmlspecialchars($row['email']) ?></td>
-                    <td><?= htmlspecialchars($row['bairro']) ?></td>
-                    <td><?= htmlspecialchars($row['aluno_estacio']) ?></td>
-                    <td><?= htmlspecialchars($row['comorbidade']) ?></td>
-                    <td><?= htmlspecialchars($row['genero']) ?></td>
-                    <td class="actions">
-                        <a href="edit.php?id=<?= $row['id'] ?>" class="btn-edit" title="Editar participante">Editar</a>
-                        <a href="dashboard.php?delete_id=<?= $row['id'] ?>" class="btn-delete" title="Excluir participante" onclick="return confirm('Excluir participante?');">Excluir</a>
-                    </td>
-                </tr>
-            <?php endwhile; ?>
-        </tbody>
-    </table>
+            <?php $contador++; ?>
+        <?php endwhile; ?>
+    </tbody>
+</table>
+
+<?php $conn->close(); ?>
 
 </body>
 </html>
-
-<?php $conn->close(); ?>

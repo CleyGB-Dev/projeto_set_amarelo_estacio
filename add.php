@@ -84,6 +84,10 @@
     a.back-link:hover {
         text-decoration: underline;
     }
+    #indicador-campos {
+        display: none;
+        margin-top: -10px;
+    }
     @media (max-width: 600px) {
         .form-container {
             padding: 20px;
@@ -97,6 +101,7 @@
 <div class="form-container">
     <h2>Adicionar Participante</h2>
     <form action="processa_add.php" method="POST">
+
         <label for="name">Nome:</label>
         <input type="text" id="name" name="name" required>
 
@@ -105,6 +110,9 @@
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX">
 
         <label for="bairro">Bairro:</label>
         <input type="text" id="bairro" name="bairro">
@@ -122,15 +130,38 @@
         <label for="gender">Gênero:</label>
         <select id="gender" name="gender" required>
             <option value="">Selecione</option>
-            <option value="Masculino">Masculino</option>
-            <option value="Feminino">Feminino</option>
-            <option value="Outro">Outro</option>
+            <option value="male">Masculino</option>
+            <option value="female">Feminino</option>
+            <option value="others">Outro</option>
         </select>
+
+        <label>Indicação de aluno?</label>
+        <select name="indicacao" id="indicacao" onchange="toggleCamposIndicador()">
+            <option value="">Selecione</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+
+        <div id="indicador-campos">
+            <label for="nome_indicador">Nome do aluno que indicou:</label>
+            <input type="text" id="nome_indicador" name="nome_indicador">
+
+            <label for="matricula_indicador">Matrícula do aluno:</label>
+            <input type="text" id="matricula_indicador" name="matricula_indicador">
+        </div>
 
         <button type="submit">Salvar</button>
     </form>
     <a href="dashboard.php" class="back-link">&larr; Voltar ao Dashboard</a>
 </div>
+
+<script>
+function toggleCamposIndicador() {
+    const indicacao = document.getElementById("indicacao").value;
+    const campos = document.getElementById("indicador-campos");
+    campos.style.display = (indicacao === "sim") ? "block" : "none";
+}
+</script>
 
 </body>
 </html>

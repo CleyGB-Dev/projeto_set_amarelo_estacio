@@ -29,4 +29,4 @@ CREATE TABLE IF NOT EXISTS users (
 
 -- Inserção de um usuário admin (senha: admin123)
 INSERT INTO users (username, password) VALUES
-('admin', '$2y$10$zFaKNcS7.Jd7CVSO7C8Xlu5flvZ2E7s7y54VRUsJdf8jRnnZ63JuG');
+('admin', '$2y$10$qCoWr6TUuArzUicRMGF2wuv0q4/0lfHkIaPuqrSpIxGO9jd6rOegS');
