@@ -22,6 +22,7 @@ if (isset($_GET['delete_id'])) {
     exit;
 }
 
+
 $result = $conn->query("SELECT * FROM inscricoes ORDER BY id ASC");
 ?>
 
